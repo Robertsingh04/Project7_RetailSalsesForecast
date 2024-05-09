@@ -90,7 +90,7 @@ class plotly:
 
         fig.update_traces(text=df[y], textinfo='percent+value',
                           textposition='outside',
-                          textfont=dict(color='white'),
+                          textfont=dict(color='green'),
                           outsidetextfont=dict(size=14))
 
         st.plotly_chart(fig, use_container_width=True)
@@ -419,7 +419,7 @@ class top_sales:
 
     # top 10 stores filter options
 
-    def top_store_filter_options():
+    def Top_Store_Filter_Options():
 
         col1, col2, col3, col4 = st.columns(4, gap='medium')
 
@@ -822,56 +822,56 @@ class comparison:
         comparison.vertical_line()
         col1, col2 = st.columns([0.55, 0.45])
 
-        with col1:
-            for i in ['Weekly_sales', 'Temperature', 'Fuel_price', 'Cpi', 'Unemployment']:
-                p, c = previous_data[i], current_data[i]
-                diff = ((c-p)/p)*100
+        # with col1:
+        #     for i in ['Weekly_sales', 'Temperature', 'Fuel_price', 'Cpi', 'Unemployment']:
+        #         p, c = previous_data[i], current_data[i]
+        #         diff = ((c-p)/p)*100
 
-                if p != 0:
-                    col3, col4, col5, col6 = st.columns([0.3, 0.4, 0.25, 0.05])
-                    with col3:
-                        add_vertical_space(1)
-                        st.markdown(f"#### {previous_data[i]:.2f}")
+        #         if p != 0:
+        #             col3, col4, col5, col6 = st.columns([0.3, 0.4, 0.25, 0.05])
+        #             with col3:
+        #                 add_vertical_space(1)
+        #                 st.markdown(f"#### {previous_data[i]:.2f}")
 
-                    with col4:
-                        if f"{c:.2f}" == f"{p:.2f}":
-                            add_vertical_space(1)
-                            st.markdown(f'''<h5 style="text-align: left;">{columns_dict()[i]} <br>
-                                        No Impact</h5>''', unsafe_allow_html=True)
-                            add_vertical_space(2)
-                        else:
-                            st.metric(
-                                label=columns_dict()[i], value=f"{(c-p):.2f}", delta=f"{diff:.2f}%")
+        #             with col4:
+        #                 if f"{c:.2f}" == f"{p:.2f}":
+        #                     add_vertical_space(1)
+        #                     st.markdown(f'''<h5 style="text-align: left;">{columns_dict()[i]} <br>
+        #                                 No Impact</h5>''', unsafe_allow_html=True)
+        #                     add_vertical_space(2)
+        #                 else:
+        #                     st.metric(
+        #                         label=columns_dict()[i], value=f"{(c-p):.2f}", delta=f"{diff:.2f}%")
 
-                    with col5:
-                        add_vertical_space(1)
-                        st.markdown(f"#### {current_data[i]:.2f}")
+        #             with col5:
+        #                 add_vertical_space(1)
+        #                 st.markdown(f"#### {current_data[i]:.2f}")
 
-        with col2:
-            for i in ['markdown1', 'markdown2', 'markdown3', 'markdown4', 'markdown5']:
-                p, c = previous_data[i], current_data[i]
-                diff = ((c-p)/p)*100
+        # with col2:
+        #     for i in ['markdown1', 'markdown2', 'markdown3', 'markdown4', 'markdown5']:
+        #         p, c = previous_data[i], current_data[i]
+        #         diff = ((c-p)/p)*100
 
-                if p != 0:
-                    col7, col8, col9, col10 = st.columns(
-                        [0.05, 0.3, 0.4, 0.25])
-                    with col8:
-                        add_vertical_space(1)
-                        st.markdown(f"#### {previous_data[i]:.2f}")
+        #         if p != 0:
+        #             col7, col8, col9, col10 = st.columns(
+        #                 [0.05, 0.3, 0.4, 0.25])
+        #             with col8:
+        #                 add_vertical_space(1)
+        #                 st.markdown(f"#### {previous_data[i]:.2f}")
 
-                    with col9:
-                        if f"{c:.2f}" == f"{p:.2f}":
-                            add_vertical_space(1)
-                            st.markdown(f'''<h5 style="text-align: left;">{columns_dict()[i]} <br>
-                                        No Impact</h5>''', unsafe_allow_html=True)
-                            add_vertical_space(2)
-                        else:
-                            st.metric(
-                                label=columns_dict()[i], value=f"{(c-p):.2f}", delta=f"{diff:.2f}%")
+        #             with col9:
+        #                 if f"{c:.2f}" == f"{p:.2f}":
+        #                     add_vertical_space(1)
+        #                     st.markdown(f'''<h5 style="text-align: left;">{columns_dict()[i]} <br>
+        #                                 No Impact</h5>''', unsafe_allow_html=True)
+        #                     add_vertical_space(2)
+        #                 else:
+        #                     st.metric(
+        #                         label=columns_dict()[i], value=f"{(c-p):.2f}", delta=f"{diff:.2f}%")
 
-                    with col10:
-                        add_vertical_space(1)
-                        st.markdown(f"#### {current_data[i]:.2f}")
+        #             with col10:
+        #                 add_vertical_space(1)
+        #                 st.markdown(f"#### {current_data[i]:.2f}")
 
 
     # manual tab filter options
@@ -953,63 +953,63 @@ class comparison:
         with col2:
             holiday = {0: 'No', 1: 'Yes'}
             type = {1: 'A', 2: 'B', 3: 'C'}
-            st.code(f'''{type[df1_dict['type']]} : Type : {type[df2_dict['type']]}           {df1_dict['size']} : Size : {df2_dict['size']}           {holiday[df1_dict['is_holiday']]}  :  Holiday : {holiday[df2_dict['is_holiday']]}''')
+            st.code(f'''{type[df1_dict['Type']]} : Type : {type[df2_dict['Type']]}           {df1_dict['Size']} : Size : {df2_dict['Size']}           {holiday[df1_dict['IsHoliday']]}  :  Holiday : {holiday[df2_dict['IsHoliday']]}''')
 
         comparison.vertical_line()
         col1, col2 = st.columns([0.55, 0.45])
 
-        with col1:
+        # with col1:
 
-            for i in ['weekly_sales', 'temperature', 'fuel_price', 'cpi', 'unemployment']:
-                p, c = df1_dict[i], df2_dict[i]
-                diff = ((c-p)/p)*100
+        #     for i in ['weekly_sales', 'temperature', 'fuel_price', 'cpi', 'unemployment']:
+        #         p, c = df1_dict[i], df2_dict[i]
+        #         diff = ((c-p)/p)*100
 
-                if p != 0:
-                    col3, col4, col5, col6 = st.columns([0.3, 0.4, 0.25, 0.05])
-                    with col3:
-                        add_vertical_space(1)
-                        st.markdown(f"#### {df1_dict[i]:.2f}")
+        #         if p != 0:
+        #             col3, col4, col5, col6 = st.columns([0.3, 0.4, 0.25, 0.05])
+        #             with col3:
+        #                 add_vertical_space(1)
+        #                 st.markdown(f"#### {df1_dict[i]:.2f}")
 
-                    with col4:
-                        if f"{c:.2f}" == f"{p:.2f}":
-                            add_vertical_space(1)
-                            st.markdown(f'''<h5 style="text-align: left;">{columns_dict()[i]} <br>
-                                        No Impact</h5>''', unsafe_allow_html=True)
-                            add_vertical_space(2)
-                        else:
-                            st.metric(
-                                label=columns_dict()[i], value=f"{(c-p):.2f}", delta=f"{diff:.2f}%")
+        #             with col4:
+        #                 if f"{c:.2f}" == f"{p:.2f}":
+        #                     add_vertical_space(1)
+        #                     st.markdown(f'''<h5 style="text-align: left;">{columns_dict()[i]} <br>
+        #                                 No Impact</h5>''', unsafe_allow_html=True)
+        #                     add_vertical_space(2)
+        #                 else:
+        #                     st.metric(
+        #                         label=columns_dict()[i], value=f"{(c-p):.2f}", delta=f"{diff:.2f}%")
 
-                    with col5:
-                        add_vertical_space(1)
-                        st.markdown(f"#### {df2_dict[i]:.2f}")
+        #             with col5:
+        #                 add_vertical_space(1)
+        #                 st.markdown(f"#### {df2_dict[i]:.2f}")
 
-        with col2:
+        # with col2:
 
-            for i in ['markdown1', 'markdown2', 'markdown3', 'markdown4', 'markdown5']:
-                p, c = df1_dict[i], df2_dict[i]
-                diff = ((c-p)/p)*100
+        #     for i in ['markdown1', 'markdown2', 'markdown3', 'markdown4', 'markdown5']:
+        #         p, c = df1_dict[i], df2_dict[i]
+        #         diff = ((c-p)/p)*100
 
-                if p != 0:
-                    col7, col8, col9, col10 = st.columns(
-                        [0.05, 0.3, 0.4, 0.25])
-                    with col8:
-                        add_vertical_space(1)
-                        st.markdown(f"#### {df1_dict[i]:.2f}")
+        #         if p != 0:
+        #             col7, col8, col9, col10 = st.columns(
+        #                 [0.05, 0.3, 0.4, 0.25])
+        #             with col8:
+        #                 add_vertical_space(1)
+        #                 st.markdown(f"#### {df1_dict[i]:.2f}")
 
-                    with col9:
-                        if f"{c:.2f}" == f"{p:.2f}":
-                            add_vertical_space(1)
-                            st.markdown(f'''<h5 style="text-align: left;">{columns_dict()[i]} <br>
-                                        No Impact</h5>''', unsafe_allow_html=True)
-                            add_vertical_space(2)
-                        else:
-                            st.metric(
-                                label=columns_dict()[i], value=f"{(c-p):.2f}", delta=f"{diff:.2f}%")
+        #             with col9:
+        #                 if f"{c:.2f}" == f"{p:.2f}":
+        #                     add_vertical_space(1)
+        #                     st.markdown(f'''<h5 style="text-align: left;">{columns_dict()[i]} <br>
+        #                                 No Impact</h5>''', unsafe_allow_html=True)
+        #                     add_vertical_space(2)
+        #                 else:
+        #                     st.metric(
+        #                         label=columns_dict()[i], value=f"{(c-p):.2f}", delta=f"{diff:.2f}%")
 
-                    with col10:
-                        add_vertical_space(1)
-                        st.markdown(f"#### {df2_dict[i]:.2f}")
+        #             with col10:
+        #                 add_vertical_space(1)
+        #                 st.markdown(f"#### {df2_dict[i]:.2f}")
 
 
     # compare between selected store and top 10 stores - filter options
@@ -1049,7 +1049,7 @@ class comparison:
         cursor = connection.cursor()
 
         cursor.execute(f'''select distinct store, type, sum(weekly_sales) as weekly_sales,  
-                        size, is_holiday, avg(temperature) as temperature,  
+                        size, IsHoliday, avg(temperature) as temperature,  
                         avg(fuel_price) as fuel_price, avg(markdown1) as markdown1,  
                         avg(markdown2) as markdown2, avg(markdown3) as markdown3,  
                         avg(markdown4) as markdown4, avg(markdown5) as markdown5, 
@@ -1057,7 +1057,7 @@ class comparison:
                        
                         from sales
                         where {condition}
-                        group by store, type, size, is_holiday               
+                        group by store, type, size, IsHoliday               
                         order by weekly_sales desc;''')
 
         s = cursor.fetchall()
@@ -1085,7 +1085,7 @@ class comparison:
 
         holiday = {0: 'No', 1: 'Yes'}
         type = {1: 'A', 2: 'B', 3: 'C'}
-        st.code(f'''{df1_dict['store']} : Store : {df2_dict['store']}           {type[df1_dict['type']]} : Type : {type[df2_dict['type']]}           {df1_dict['size']} : Size : {df2_dict['size']}           {holiday[df1_dict['is_holiday']]}  :  Holiday : {holiday[df2_dict['is_holiday']]}''')
+        st.code(f'''{df1_dict['store']} : Store : {df2_dict['store']}           {type[df1_dict['type']]} : Type : {type[df2_dict['type']]}           {df1_dict['size']} : Size : {df2_dict['size']}           {holiday[df1_dict['IsHoliday']]}  :  Holiday : {holiday[df2_dict['IsHoliday']]}''')
 
         comparison.vertical_line()
         col1, col2 = st.columns([0.55, 0.45])
@@ -1229,7 +1229,7 @@ class comparison:
         cursor = connection.cursor()
 
         cursor.execute(f'''select distinct store, type, sum(weekly_sales) as weekly_sales,  
-                        size, is_holiday, avg(temperature) as temperature,  
+                        size, IsHoliday, avg(temperature) as temperature,  
                         avg(fuel_price) as fuel_price, avg(markdown1) as markdown1,  
                         avg(markdown2) as markdown2, avg(markdown3) as markdown3,  
                         avg(markdown4) as markdown4, avg(markdown5) as markdown5, 
@@ -1237,7 +1237,7 @@ class comparison:
                        
                         from sales
                         where {condition}
-                        group by store, type, size, is_holiday               
+                        group by store, type, size, IsHoliday               
                         order by weekly_sales desc;''')
 
         s = cursor.fetchall()
@@ -1740,7 +1740,7 @@ elif option == 'Top Sales':
 
     with tab1:
 
-        day1, month1, year1, dept1 = top_sales.top_store_filter_options()
+        day1, month1, year1, dept1 = top_sales.Top_Store_Filter_Options()
         add_vertical_space(3)
 
         if dept1 == 'Overall':
