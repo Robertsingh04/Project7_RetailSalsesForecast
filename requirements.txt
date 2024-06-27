@@ -1,0 +1,12 @@
+### dependency
+date
+pandas
+numpy
+pickle
+mysql.connector
+plotly.express
+streamlit
+streamlit_option_menu
+streamlit_extras.add_vertical_space
+warnings
+
